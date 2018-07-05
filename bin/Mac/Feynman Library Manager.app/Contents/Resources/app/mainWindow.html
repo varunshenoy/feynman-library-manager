@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Feynman Library Manager</title>
+  <link rel="stylesheet"  type="text/css" href="semanticUI/semantic.min.css">
+  <link rel="stylesheet"  type="text/css" href="semanticUI/icon.min.css">
+  <link rel="stylesheet"  type="text/css" href="style.css">
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="semanticUI/semantic.min.js"></script>
+</head>
+<body>
+  <div class="ui modal data-management-modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Database Management
+    </div>
+    <div class="content">
+      <div class="ui small header">Database Information</div>
+      <div class="ui"><em>Feynman Library Manager utilizes a local datastore for maximum security. The database is updated and backed up dynamically.</em></div>
+      <div class="ui small header">Load Backup File</div>
+      <div class="ui"><em>Feynman Library Manager dynamically generates a backup datastore every time the application is launched.<br>Select a file below:</em></div><br>
+      <select class="data-selector" name="filenames"></select>
+      <br><br><div class="ui positive right labeled icon button load-backup">
+        Load Backup
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black cancel button">
+        Done
+      </div>
+    </div>
+  </div>
+  <div class="ui modal faq-modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Interactive Q&amp;A
+    </div>
+    <div class="content">
+      <div class="ui styled fluid accordion">
+        <div class="active title">
+          <i class="dropdown icon"></i>
+          What is Feynman Library Manager?
+        </div>
+        <div class="active content">
+          <p>Feynman Library Manager is the first simple to use, no hassle, library management software. Librarians can easily track books, patrons, and fines in an immersive user interface.</p>
+          <p>Built by Varun Shenoy from Cupertino High School.</p>
+          <p>Features:</p>
+          <ul>
+            <li><b>Minimum Features for FBLA Coding & Programming:</b></li>
+            <ul>
+              <li>Track student and teacher names with ability to enter/view/edit names</li>
+              <li>Track the issuance of books for a student or teacher</li>
+              <li>Manage different limits for the number of books that can be issued to a student or teacher</li>
+              <ul>
+                <li>Teachers can hold up to 15 books for 42 days each</li>
+                <li>Students can hold up to 5 books for 21 days each</li>
+              </ul>
+              <li>Unique generated IDs for every book</li>
+              <li>Track student and teacher names with ability to enter/view/edit names</li>
+              <li>Generate/Print overdue reports for individual patrons</li>
+              <li>Generate/Print weekly reports to show books issued to whom and number of days leading to the due date return</li>
+            </ul>
+            <li><b>Custom Features:</b></li>
+            <ul>
+              <li>Simple and clean user interface with vibrant colors</li>
+              <li>Support for both Windows and Mac operating systems</li>
+              <li>Designed with the best user experience for a librarian in mind</li>
+              <li>Secure local datastore with daily dynamic backups</li>
+              <li>Load backups effortlessly from previous days</li>
+              <li>Filter books/patrons via the interactive search bar</li>
+              <li>Add new patrons and books through a simple form interface</li>
+              <li>Interactive Help Menu</li>
+            </ul>
+          </ul>
+        </div>
+        <div class="title">
+          <i class="dropdown icon"></i>
+          What tools were used to build this application?
+        </div>
+        <div class="content">
+          <p>The following tools were used during this project:</p>
+          <ul>
+            <li>Atom Text Editor (atom.io)</li>
+            <li>Git & Github (github.com)</li>
+            <li><b>Languages:</b></li>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Javascript ES6</li>
+            </ul>
+            <li><b>npm modules:</b></li>
+            <ul>
+              <li>Electron Web Development Framework (electronjs.org)</li>
+              <li>jQuery (jquery.com)</li>
+              <li>node-json-db (github.com/Belphemur/node-json-db)</li>
+              <li>moment.js (momentjs.com)</li>
+              <li>SweetAlert2 (sweetalert2.github.io)</li>
+              <li>jsPDF and jsPDF-Autotable (github.com/MrRio/jsPDF, github.com/simonbengtsson/jsPDF-AutoTable)</li>
+            </ul>
+            <li><b>Design Frameworks:</b></li>
+            <ul>
+              <li>Semantic UI (semantic-ui.com)</li>
+              <li>Sketch (sketchapp.com)</li>
+            </ul>
+          </ul>
+        </div>
+        <div class="title">
+          <i class="dropdown icon"></i>
+          How is data stored within the app?
+        </div>
+        <div class="content">
+          <p>Rather than serving data from a database in the cloud, we have developed a local datastore. All data never leaves the application. This ensures maximum security and speed within the application.
+             Furthermore, the app automatically creates a new backup every day it is opened. Old backups can be loaded within the "Database Management" tab within the program.</p>
+        </div>
+        <div class="title">
+          <i class="dropdown icon"></i>
+          How does the software plan to earn money?
+        </div>
+        <div class="content">
+          <p>We plan to license the application to schools and independent libraries. The current version is specifically for Feynman High School. However, we can sell the source code of the app to other chapters and they can edit the components of it for their own purposes.</p>
+        </div>
+        <div class="title">
+          <i class="dropdown icon"></i>
+          What was the hardest part of the application to implement?
+        </div>
+        <div class="content">
+          <p>Without a doubt, the hardest part was perfecting the user interface. As a software developer, I know it is important to not overwhelm the user with interface elements. Therefore, I made it my goal to keep the program visually simple while retaining
+             many userful features.
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black cancel button">
+        Close
+      </div>
+    </div>
+  </div>
+  <div class="ui modal add-book-modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Add New Book
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <label>Title</label>
+          <input type="text" name="title" placeholder="Title" class="new-book-title">
+        </div>
+        <div class="field">
+          <label>Author</label>
+          <input type="text" name="author" placeholder="Author" class="new-book-author">
+        </div>
+        <div class="field">
+          <label>Autogenerated Book ID (Cannot be changed)</label>
+          <input placeholder="Read Only" readonly="" type="text" class="new-book-id">
+        </div>
+        <div class="field">
+          <label>ISBN</label>
+          <input type="text" name="isbn" placeholder="ISBN" class="new-book-isbn">
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black cancel button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button add-book-to-db">
+        Add
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui modal update-patron-modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Update Patron
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" name="first_name" placeholder="First Name" class="update-fn">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" name="last_name" placeholder="Last Name" class="update-ln">
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black cancel button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button update-patron-button">
+        Update
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui modal add-patron-modal">
+    <i class="close icon"></i>
+    <div class="header add-new-patron-label">
+      Add New Patron
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" name="last-name" placeholder="First Name" class="new-patron-fn">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" name="last-name" placeholder="Last Name" class="new-patron-ln">
+        </div>
+        <div class="field">
+          <label>Staff/Student ID</label>
+          <input type="text" name="student-id" placeholder="Staff/Student ID" class="new-patron-id">
+        </div>
+        <div class="inline fields">
+          <label for="grade-level">Select grade level:</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="grade-level" checked="" tabindex="0" class="hidden" value="9th">
+              <label>9th</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="grade-level" tabindex="0" class="hidden" value="10th">
+              <label>10th</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="grade-level" tabindex="0" class="hidden" value="11th">
+              <label>11th</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="grade-level" tabindex="0" class="hidden" value="12th">
+              <label>12th</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="grade-level" tabindex="0" class="hidden" value="Teacher/Staff">
+              <label>Teacher/Staff</label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black cancel button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button add-patron-to-db">
+        Add
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui modal check-in-modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Check In Returned Book
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <label>Book ID</label>
+          <input type="text" name="Book ID" placeholder="Book ID" class="check-in-id">
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black cancel button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button check-in-finished">
+        Return
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui modal check-out-modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Check Out Book
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <label>Book ID</label>
+          <input type="text" name="Book ID" placeholder="Book ID" class="check-out-id">
+        </div>
+        <div class="ui search field category fluid patron-filter-search">
+          <label>Patron Search</label>
+          <div class="ui icon input">
+            <input class="prompt" id="patron-filter" type="text" placeholder="Search for student or teacher...">
+            <i class="search icon"></i>
+          </div>
+          <div class="results scrollable"></div>
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black cancel button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button check-out-finished">
+        Check Out
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="topbar"></div>
+  <div class="ui grid">
+    <div class="four wide column">
+      <div class="panel left-pan">
+        <div class="ui vertical menu management-tools">
+          <div class="header item">Management Tools</div>
+          <a class="active item" id="book-management">
+            <i class="icon book"></i>
+            Book Management
+          </a>
+          <a class="item" id="patron-management">
+            <i class="icon users"></i>
+            Patron Management
+          </a>
+          <a class="item" id="overdue-books">
+            <i class="icon history"></i>
+            Overdue Books
+          </a>
+          <a class="item" id="database-management">
+            <i class="icon database"></i>
+            Database Management
+          </a>
+        </div>
+        <div class="ui vertical menu">
+          <div class="header item">Quick Actions</div>
+          <a class="item check-out-trigger">
+            <i class="icon barcode"></i>
+            Check Out Book
+          </a>
+          <a class="item check-in-trigger">
+            <i class="icon inbox"></i>
+            Check In Returned Book
+          </a>
+          <a class="item add-new-patron">
+            <i class="icon user"></i>
+            Add New Patron to System
+          </a>
+          <a class="item faq-trigger">
+            <i class="icon help"></i>
+            Interactive Q&amp;A
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="twelve wide column">
+      <div class="panel scrollable right-pan">
+        <div class="control-panel">
+          <h2 class="ui header" id="text-header">
+            <i class="book icon"></i>
+            <div class="content">
+              Book Management
+              <div class="sub header">Add, Remove, Update, and Find Information about Books</div>
+            </div>
+          </h2>
+          <div class="ui search" style="display: inline-block; width: 60%;">
+            <div class="ui icon input" style="width: 100%">
+              <input class="prompt" id="search-filter" type="text" placeholder="Filter by keywords (title, author, etc.)">
+              <i class="search icon"></i>
+            </div>
+          </div>
+          <span id="main-buttons">
+            <button class="ui basic button right floated" id="print-weekly-report">
+              <i class="icon print"></i>
+              Print Weekly Report
+            </button>
+            <button class="ui basic button right floated add-book">
+              <i class="icon add"></i>
+              Add Book
+            </button>
+          </span>
+
+        </div>
+        <div class="ui divider"></div>
+        <table class="ui celled table" id="data-table">
+          <thead>
+            <tr>
+              <th>Actions</th>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Book ID</th>
+              <th>ISBN</th>
+              <th>Checked Out By</th>
+              <th>Return Date</th>
+            </tr>
+          </thead>
+          <tbody class="books-table">
+            <!--<tr>
+              <td>Harry Potter and the Sorcerer's Stone</td>
+              <td>J.K. Rowling</td>
+              <td>123456789</td>
+              <td>0747532745</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Fellowship of the Ring</td>
+              <td>J.R.R. Tolkien</td>
+              <td>223456789</td>
+              <td>0747532745</td>
+              <td>Varun Shenoy</td>
+              <td>Jan. 5, 2018</td>
+            </tr>
+            <tr class="negative">
+              <td>Their Eyes Were Watching God</td>
+              <td>Zora Neale Hurston</td>
+              <td>223156789</td>
+              <td>4747532745</td>
+              <td>Naren Ramesh</td>
+              <td>Dec. 15, 2018</td>
+            </tr>
+            <tr>
+              <td>Harry Potter and the Sorcerer's Stone</td>
+              <td>J.K. Rowling</td>
+              <td>123456789</td>
+              <td>0747532745</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Fellowship of the Ring</td>
+              <td>J.R.R. Tolkien</td>
+              <td>223456789</td>
+              <td>0747532745</td>
+              <td>Varun Shenoy</td>
+              <td>Jan. 5, 2018</td>
+            </tr>
+            <tr class="negative">
+              <td>Their Eyes Were Watching God</td>
+              <td>Zora Neale Hurston</td>
+              <td>223156789</td>
+              <td>4747532745</td>
+              <td>Naren Ramesh</td>
+              <td>Dec. 15, 2018</td>
+            </tr>
+            <tr>
+              <td>Harry Potter and the Sorcerer's Stone</td>
+              <td>J.K. Rowling</td>
+              <td>123456789</td>
+              <td>0747532745</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Fellowship of the Ring</td>
+              <td>J.R.R. Tolkien</td>
+              <td>223456789</td>
+              <td>0747532745</td>
+              <td>Varun Shenoy</td>
+              <td>Jan. 5, 2018</td>
+            </tr>
+            <tr class="negative">
+              <td>Their Eyes Were Watching God</td>
+              <td>Zora Neale Hurston</td>
+              <td>223156789</td>
+              <td>4747532745</td>
+              <td>Naren Ramesh</td>
+              <td>Dec. 15, 2018</td>
+            </tr>
+            <tr>
+              <td>Harry Potter and the Sorcerer's Stone</td>
+              <td>J.K. Rowling</td>
+              <td>123456789</td>
+              <td>0747532745</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Fellowship of the Ring</td>
+              <td>J.R.R. Tolkien</td>
+              <td>223456789</td>
+              <td>0747532745</td>
+              <td>Varun Shenoy</td>
+              <td>Jan. 5, 2018</td>
+            </tr>
+            <tr class="negative">
+              <td>Their Eyes Were Watching God</td>
+              <td>Zora Neale Hurston</td>
+              <td>223156789</td>
+              <td>4747532745</td>
+              <td>Naren Ramesh</td>
+              <td>Dec. 15, 2018</td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="semanticUI/semantic.min.js"></script>
+  <script src="window.js"></script>
+</body>
+</html>

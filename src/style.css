@@ -1,0 +1,31 @@
+.panel {
+  padding: 20px;
+  height: 100vh;
+}
+
+.scrollable {
+    overflow: scroll;
+}
+
+.left-pan {
+  padding-right: 0px;
+}
+
+.right-pan {
+  padding-left: 0px;
+}
+
+.topbar {
+  height: 20px;
+  background-color: #00B5AD;
+}
+
+body {
+  background-color: #F9F9FB;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.ui.vertical.menu {
+  width: 100% !important;
+}
